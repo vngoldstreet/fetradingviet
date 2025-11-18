@@ -49,14 +49,25 @@ export class SignupComponent {
   ) {
     this.registerForm = this.fb.group(
       {
-        name: ['', [Validators.required, CustomValidators.name()]],
-        email: ['', [Validators.required, Validators.email]],
-        phone: ['', [Validators.required, CustomValidators.vietnamPhone()]],
+        display_name: [
+          'Vũ Việt',
+          [Validators.required, CustomValidators.name()],
+        ],
+        email: [
+          'vietvd@goldenfund.vn',
+          [Validators.required, Validators.email],
+        ],
+        phone: [
+          '0948748747',
+          [Validators.required, CustomValidators.vietnamPhone()],
+        ],
+        role: ['buyer'],
+        avatar_url: ['https://avatar.iran.liara.run/public'],
         password: [
-          '',
+          '@Viet0948748747',
           [Validators.required, CustomValidators.passwordStrength()],
         ],
-        retype_password: ['', [Validators.required]],
+        retype_password: ['@Viet0948748747', [Validators.required]],
       },
       {
         validators: CustomValidators.matchFields('password', 'retype_password'),
@@ -110,7 +121,7 @@ export class SignupComponent {
 
   getLabel(field: string): string {
     const map: Record<string, string> = {
-      name: 'Họ và tên',
+      display_name: 'Tên hiển thị',
       email: 'Email',
       phone: 'Số điện thoại',
       password: 'Mật khẩu',
@@ -129,28 +140,11 @@ export class SignupComponent {
           this.message = 'Đăng ký thành công';
           this.messageClass = 'text-green-700';
           setTimeout(() => {
-            this.message = 'Đang xử lý đăng nhập...';
-            const email = this.registerForm.get('email')?.value;
-
-            const password = this.registerForm.get('password')?.value;
-            this.auth.login$(email, password).subscribe({
-              next: () => {
-                this.success = true;
-                this.message = 'Đăng nhập thành công!';
-                setTimeout(() => {
-                  this.router.navigate(['']);
-                }, 1000);
-              },
-              error: (err: any) => {
-                this.success = false;
-                this.message = err?.error?.error || 'Đăng nhập thất bại.';
-                this.loading = false;
-              },
-            });
-          }, 1000);
+            this.loading = false;
+            this.router.navigate(['']);
+          }, 2000);
         },
         error: (err: any) => {
-          console.log(err);
           this.success = false;
           this.messageClass = 'text-red-600';
           this.message = err?.error?.error?.message || 'Đăng ký thất bại.';

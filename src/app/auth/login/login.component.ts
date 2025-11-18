@@ -119,7 +119,7 @@ export class LoginComponent {
   submit() {
     if (this.loginForm.valid) {
       this.loading = true;
-      this.message = '';
+      this.message = 'Đang xử lý';
       const email = this.loginForm.get('email')?.value;
       const password = this.loginForm.get('password')?.value;
       this.auth.login$(email, password).subscribe({
@@ -128,11 +128,11 @@ export class LoginComponent {
           this.messageClass = 'text-green-600';
           this.message = 'Đăng nhập thành công!';
           setTimeout(() => {
+            this.loading = false;
             this.router.navigate(['']);
           }, 2000);
         },
         error: (err: any) => {
-          console.log(err);
           this.success = false;
           this.messageClass = 'text-red-600';
           this.message =

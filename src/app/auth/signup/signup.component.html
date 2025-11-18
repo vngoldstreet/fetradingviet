@@ -1,13 +1,13 @@
 <app-loading-overlay [isLoading]="loading" [responseMessage]="message"></app-loading-overlay>
 <app-header></app-header>
-<div class="min-h-screen flex items-center justify-center">
+<div class="min-h-screen flex items-center justify-center bg-gradient-to-b from-[#0C0C0C] to-[#1A1A1A]">
     <form (ngSubmit)="submit()" [formGroup]="registerForm"
         class="p-6 rounded-xl border-2 border-vsg-blue shadow-md w-full max-w-sm">
         <div class="w-full flex flex-col justify-center items-center">
-            <h2 class="text-xl font-bold w-full text-center uppercase text-vsg-black">Đăng ký tài khoản</h2>
+            <h2 class="text-xl font-bold w-full text-center uppercase text-custom-yellow">Đăng ký tài khoản</h2>
             <div>
-                <p class="text-vsg-black text-center my-3">Bạn đã có tài khoản?
-                    <a class="text-orange-600" routerLink="/dang-nhap">
+                <p class="text-custom-white text-center my-3">Bạn đã có tài khoản?
+                    <a class="text-custom-brown" routerLink="/dang-nhap">
                         Đăng nhập
                     </a>
                 </p>
@@ -15,18 +15,18 @@
         </div>
 
         <div class="max-w-sm">
-            <label for="input-label" class="block text-sm font-medium mb-2">Họ và tên</label>
-            <input type="text" formControlName="name"
+            <label for="input-label" class="block text-sm font-medium mb-2 text-custom-white">Họ và tên</label>
+            <input type="text" formControlName="display_name"
                 class="py-2.5 sm:py-3 px-4 block w-full border border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
                 placeholder="Nhập vào họ tên của bạn">
             <div class="flex flex-col justify-center gap-x-2 my-2">
-                <div class="text-sm text-red-600" *ngIf="getError('name')">
-                    {{ getError('name') }}
+                <div class="text-sm text-red-600" *ngIf="getError('display_name')">
+                    {{ getError('display_name') }}
                 </div>
             </div>
         </div>
         <div class="max-w-sm mt-2">
-            <label for="input-label" class="block text-sm font-medium mb-2">Email</label>
+            <label for="input-label" class="block text-sm font-medium mb-2 text-custom-white">Email</label>
             <input type="text" formControlName="email"
                 class="py-2.5 sm:py-3 px-4 block w-full border border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
                 placeholder="Nhập vào email của bạn">
@@ -37,7 +37,7 @@
             </div>
         </div>
         <div class="max-w-sm mt-2">
-            <label for="input-label" class="block text-sm font-medium mb-2">Số điện thoại</label>
+            <label for="input-label" class="block text-sm font-medium mb-2 text-custom-white">Số điện thoại</label>
             <input type="text" formControlName="phone"
                 class="py-2.5 sm:py-3 px-4 block w-full border border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
                 placeholder="Nhập vào số điện thoại của bạn">
@@ -48,7 +48,7 @@
             </div>
         </div>
         <div class="max-w-sm mt-2">
-            <label for="input-label" class="block text-sm font-medium mb-2">Mật khẩu</label>
+            <label for="input-label" class="block text-sm font-medium mb-2 text-custom-white">Mật khẩu</label>
             <div class="relative">
                 <input [type]="showPass ? 'text' : 'password'" formControlName="password"
                     class="py-2.5 sm:py-3 px-4 block w-full border border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
@@ -72,7 +72,7 @@
             </div>
         </div>
         <div class="max-w-sm mt-2">
-            <label for="input-label" class="block text-sm font-medium mb-2">Nhập lại mật khẩu</label>
+            <label for="input-label" class="block text-sm font-medium mb-2 text-custom-white">Nhập lại mật khẩu</label>
             <div class="relative">
                 <input [type]="showRetypePass ? 'text' : 'password'" formControlName="retype_password"
                     class="py-2.5 sm:py-3 px-4 block w-full border border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
@@ -100,7 +100,7 @@
 
         <div class="flex justify-center gap-x-2 my-7">
             <button type="submit" [disabled]="registerForm.invalid"
-                class="bg-goldenfund-black-300 text-goldenfund-yellow-500 hover:bg-goldenfund-silver-100 hover:text-goldenfund-black-300 px-4 py-2 rounded w-full disabled:opacity-50 disabled:pointer-events-none">
+                class="bg-custom-yellow hover:bg-custom-yellow/90 text-[#0C0C0C] shadow-lg shadow-custom-yellow/20 px-4 py-2 rounded w-full disabled:opacity-50 disabled:pointer-events-none">
                 Đăng ký
             </button>
         </div>

@@ -19,7 +19,7 @@ export class AuthService {
           localStorage.setItem('access_token', res.data.access_token);
           localStorage.setItem('refresh_token', res.data.refresh_token);
           localStorage.setItem('user', JSON.stringify(res.data.user));
-          setUser(res.user);
+          setUser(res.data.user);
         })
       );
   }
@@ -31,7 +31,7 @@ export class AuthService {
         localStorage.setItem('access_token', res.data.access_token);
         localStorage.setItem('refresh_token', res.data.refresh_token);
         localStorage.setItem('user', JSON.stringify(res.data.user));
-        setUser(res.user);
+        setUser(res.data.user);
       })
     );
   }
@@ -43,7 +43,14 @@ export class AuthService {
 
   register$(data: any) {
     const loginUrl = `${environment.API_BASE}/${environment.REGISTER}`;
-    return this.http.post<any>(loginUrl, data).pipe(tap((res) => {}));
+    return this.http.post<any>(loginUrl, data).pipe(
+      tap((res) => {
+        localStorage.setItem('access_token', res.data.access_token);
+        localStorage.setItem('refresh_token', res.data.refresh_token);
+        localStorage.setItem('user', JSON.stringify(res.data.user));
+        setUser(res.data.user);
+      })
+    );
   }
 
   getCurrentUser() {
@@ -54,7 +61,6 @@ export class AuthService {
   restoreSession() {
     const userStr = localStorage.getItem('user');
     const token = localStorage.getItem('access_token');
-
     if (userStr && userStr !== 'undefined' && token) {
       try {
         const user = JSON.parse(userStr);

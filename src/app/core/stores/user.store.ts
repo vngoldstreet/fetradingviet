@@ -1,11 +1,13 @@
 import { signal } from '@angular/core';
 
 export interface User {
-  id: number;
+  id: string;
   email: string;
-  name: string;
+  display_name: string;
   phone: string;
   role: string;
+  avatar_url: string;
+  status: string;
 }
 
 export const userSignal = signal<User | null>(null);

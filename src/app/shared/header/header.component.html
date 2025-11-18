@@ -1,5 +1,5 @@
-<header class="w-full fixed top-0 z-50 px-4 py-0.5 md:py-2 bg-gradient-to-br from-[#0C0C0C] via-[#1A1A1A] to-[#0C0C0C]">
-    <nav class="container mx-auto transition-[rounded,margin] duration">
+<header class="w-full fixed top-0 z-50 py-2 md:py-4 bg-gradient-to-br from-[#0C0C0C] via-[#1A1A1A] to-[#0C0C0C]">
+    <nav class="container mx-auto px-6 transition-[rounded,margin] duration">
         <div class="flex flex-row justify-between items-center">
             <a href="/" class="flex items-center gap-3">
                 <div class="w-10 h-10 bg-custom-yellow rounded-lg flex items-center justify-center">
@@ -18,25 +18,26 @@
                     <div class="text-xs text-custom-white">Đối tác độc quyền FXGlobalHub tại Việt Nam</div>
                 </div>
             </a>
-            <!-- <ul class="flex gap-2">
-                <li *ngFor="let item of navItemsForBrowser; index as i" (click)="setActive(i)"
-                    class="hidden lg:block p-0">
-                    <a [routerLink]="item.link"
-                        class="text-custom-white hover:text-custom-yellow text-center px-2 py-1 flex items-center gap-1 cursor-pointer text-base rounded-3xl transition duration-100 ease-in-out"
-                        [ngClass]="{'text-custom-yellow': selectedIndex === i}">
-                        <span [innerHTML]="item.icon"></span>
-                        <span>{{ item.label }}</span>
-                    </a>
-                </li>
-            </ul> -->
-            <div class="flex justify-end gap-6">
+
+            <div class="flex justify-end items-center gap-6">
+                <ul class="flex gap-2">
+                    <li *ngFor="let item of navItemsForBrowser; index as i" (click)="setActive(i)"
+                        class="hidden lg:block p-0">
+                        <a [routerLink]="item.link"
+                            class="text-custom-white hover:text-custom-yellow text-center px-2 py-1 flex items-center gap-1 cursor-pointer text-base rounded-3xl transition duration-100 ease-in-out"
+                            [ngClass]="{'text-custom-yellow': selectedIndex === i}">
+                            <span [innerHTML]="item.icon"></span>
+                            <span>{{ item.label }}</span>
+                        </a>
+                    </li>
+                </ul>
                 <div *ngIf="isLoggedIn(); else loginBlock">
                     <div class="relative inline-flex">
                         <button (click)="toggleDropdown()"
                             class="py-1 ps-1 pe-3 inline-flex items-center gap-x-2 font-semibold focus:outline-none text-black"
                             aria-haspopup="menu" aria-expanded="isDropdownOpen" aria-label="Dropdown">
                             <div class="flex justify-end gap-2 items-center">
-                                <div class="text-custom-black flex flex-col justify-end items-end">
+                                <div class="text-custom-yellow flex flex-col justify-end items-end">
                                     <svg class="hs-collapse-open:hidden flex-shrink-0 size-7"
                                         xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -48,40 +49,31 @@
                                 </div>
                             </div>
                         </button>
-                        <div class="absolute right-0 top-16 z-10 mt-2 w-72 xl:w-[1000px] bg-white border border-gray-300 shadow-md rounded-lg transition-all duration-300 ease-in-out"
+                        <div class="absolute right-0 top-10 z-10 mt-2 w-72 xl:w-[300px] group bg-custom-black border border-[#F5BF00]/30 rounded-2xl p-8 hover:shadow-xl hover:shadow-[#F5BF00]/10 transition-all duration-300 ease-in-out"
                             [ngClass]="{'max-h-0 opacity-0 overflow-hidden': !isDropdown, 'opacity-100': isDropdown}">
                             <div
                                 class="overflow-hidden [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300">
-                                <div class="grid grid-cols-12 gap-4 my-5 mx-3">=
-                                    <div
-                                        class="col-span-12 xl:col-span-4 border border-gray-100 shadow-sm rounded-xl p-4">
-                                        <div class="flex flex-col xl:flex-row justify-end">
-                                            <div class="block xl:hidden shadow-sm border-gray-100 rounded-lg border">
-                                                <button *ngFor="let item of navItemsForBrowser"
-                                                    (click)="clickOnMenuDropdown(item)"
-                                                    class="w-full px-3 py-2 rounded-lg text-base font-semibold md:text-sm xl:text-base text-custom-white hover:bg-gray-100 hover:text-fxgh-blue-400 focus:outline-none">
-                                                    {{item.label}}
-                                                </button>
-                                            </div>
-                                        </div>
-                                        <div class="my-3 xl:my-0">
-                                            <h2 class="font-semibold text-goldenfund-black-300 text-sm xl:text-base">
-                                                Xin chào, <span class="capitalize">{{ userSignal()?.name }}!</span>
-                                            </h2>
-                                            <p class="text-gray-600 text-xs xl:text-sm">
-                                                {{userSignal()?.email}}
-                                                <span class="px-2 uppercase font-semibold text-xs rounded-full"
-                                                    [ngClass]="{'text-goldenfund-yellow-500 border-goldenfund-yellow-500 bg-goldenfund-black-300':userSignal()?.role === 'admin','text-goldenfund-black-300 border-gray-300 bg-gray-100':userSignal()?.role !== 'admin'}">
-                                                    {{userSignal()?.role}}
-                                                </span>
-                                            </p>
-                                        </div>
-                                        <button type="button" (click)="logout()"
-                                            class="w-full px-3 py-2 my-2 rounded-lg bg-red-200 text-red-600 text-base font-semibold md:text-sm xl:text-base hover:bg-gray-100 hover:text-fxgh-blue-400 focus:outline-none">
-                                            Đăng xuất
+                                <div class="flex flex-col xl:flex-row justify-end">
+                                    <div class="block xl:hidden shadow-sm border-gray-100 rounded-lg border">
+                                        <button *ngFor="let item of navItemsForBrowser"
+                                            (click)="clickOnMenuDropdown(item)"
+                                            class="w-full px-3 py-2 rounded-lg text-base font-semibold md:text-sm xl:text-base text-custom-white hover:bg-gray-100 hover:text-fxgh-blue-400 focus:outline-none">
+                                            {{item.label}}
                                         </button>
                                     </div>
                                 </div>
+                                <div class="my-3 xl:my-0">
+                                    <h2 class="font-semibold text-custom-yellow text-sm xl:text-base">
+                                        Xin chào, <span class="capitalize">{{ userSignal()?.display_name }}!</span>
+                                    </h2>
+                                    <p class="text-custom-white/70 text-xs xl:text-sm">
+                                        {{userSignal()?.email}}
+                                    </p>
+                                </div>
+                                <button type="button" (click)="logout()"
+                                    class="group bg-custom-black text-red-300 border border-[#F5BF00]/30 rounded-2xl transition-all duration-300 hover:shadow-xl hover:shadow-[#F5BF00]/10 px-5 py-1 my-2 text-sm">
+                                    Đăng xuất
+                                </button>
                             </div>
                         </div>
                     </div>

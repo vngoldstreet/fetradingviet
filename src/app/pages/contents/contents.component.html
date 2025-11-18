@@ -1,0 +1,61 @@
+<app-header></app-header>
+<div class="container mx-auto px-6 my-28">
+    <div class="flex flex-col items-center my-5">
+        <h2 class="text-3xl lg:text-4xl tracking-tight text-custom-brown">Tìm kiếm
+        </h2>
+        <p class="text-xl text-custom-white/70 max-w-xl">
+            Cho chúng tôi một từ khoá bạn muốn tìm nhé!
+        </p>
+    </div>
+    <div class="flex items-center justify-center gap-4">
+        <div
+            class="flex items-center gap-2 bg-white rounded-full w-1/2 border border-pbds-gray px-6 py-3 shadow-sm text-xl">
+            <input type="text" #searchPost [(ngModel)]="searchText" (keydown.enter)="onEnterCustomer(searchPost)"
+                placeholder="Tìm kiếm bất cứ điều gì..." class="flex-1 outline-none text-sm">
+            <button type="button" (click)="loadingData()"
+                class="size-11.5 ps-3 shrink-0 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-e-md border border-transparent bg-goldenfund-yellow-500 text-goldenfund-black-300 disabled:opacity-50 disabled:pointer-events-none">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="lucide lucide-search w-4 h-4 text-[#64748B]" aria-hidden="true">
+                    <path d="m21 21-4.34-4.34"></path>
+                    <circle cx="11" cy="11" r="8"></circle>
+                </svg>
+            </button>
+        </div>
+    </div>
+    <div class="grid lg:grid-cols-4 gap-8 mt-20">
+        <article *ngFor="let item of postLists"
+            class="group bg-custom-black border border-custom-black rounded-2xl overflow-hidden hover:border-custom-yellow/30 transition-all duration-300">
+            <a [routerLink]="['/', item?.slug]">
+                <div class="p-6">
+                    <div *ngIf="item?.thumbnail"
+                        class="aspect-video object-cover rounded-xl flex items-center justify-center mb-6">
+                        <img class="rounded-md" [src]="item?.thumbnail" [alt]="item?.title">
+                    </div>
+                    <h3 class="text-xl text-custom-white mb-3 group-hover:text-custom-yellow transition-colors">
+                        {{item?.title}}
+                    </h3>
+                    <p class="text-custom-white/60 mb-6 leading-relaxed">
+                        {{item?.description}}
+                    </p>
+                </div>
+                <div class="px-6 pb-6">
+                    <a [routerLink]="['/', item?.slug]"
+                        class="text-custom-yellow hover:text-custom-yellow/80 flex items-center gap-2 group/link">
+                        Đọc
+                        bài
+                        viết
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-arrow-right w-4 h-4 group-hover/link:translate-x-1 transition-transform"
+                            aria-hidden="true">
+                            <path d="M5 12h14"></path>
+                            <path d="m12 5 7 7-7 7"></path>
+                        </svg>
+                    </a>
+                </div>
+            </a>
+        </article>
+    </div>
+</div>
+<app-footer></app-footer>

@@ -7,6 +7,7 @@ export const environment = {
   RESET_PASSWORD: '',
   CONFIRM_RESET_PASSWORD: '',
   POSTS: 'v1/search',
+  POST_DETAIL: 'v1/post',
   MAPS: 'https://phobatdongsan.com.vn/styles/basic-preview/style.json',
   // MAPS: 'http://192.168.1.224:7000/styles/basic-preview/style.json',
 };

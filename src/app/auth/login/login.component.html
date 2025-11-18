@@ -1,24 +1,24 @@
 <app-loading-overlay [isLoading]="loading" [responseMessage]="message"></app-loading-overlay>
 <app-header></app-header>
-<div class="min-h-screen flex items-center justify-center px-5 xl:px-0">
+<div class="min-h-screen flex items-center justify-center bg-gradient-to-b from-[#0C0C0C] to-[#1A1A1A]">
     <form (ngSubmit)="submit()" [formGroup]="loginForm" class="p-6 rounded-xl border-2 shadow-md w-full max-w-sm">
         <div class="w-full flex flex-col justify-center items-center">
-            <h2 class="text-xl font-bold w-full text-center uppercase text-vsg-black">Đăng nhập</h2>
+            <h2 class="text-xl font-bold w-full text-center uppercase text-custom-white">Đăng nhập</h2>
             <div>
-                <p class="text-vsg-black text-center my-3 text-sm md:text-base">Bạn chưa có tài khoản?
-                    <a class="text-orange-600" routerLink="/dang-ky">
+                <p class="text-custom-white text-center my-3 text-sm md:text-base">Bạn chưa có tài khoản?
+                    <a class="text-custom-brown" routerLink="/dang-ky">
                         Đăng ký ngay
                     </a>
-                    hoặc bấm vào
+                    <!-- hoặc bấm vào
                     <a class="text-orange-600" routerLink="/reset-password">
                         Quên mật khẩu
                     </a>
-                    để lấy lại thông tin đăng nhập.
+                    để lấy lại thông tin đăng nhập. -->
                 </p>
             </div>
         </div>
         <div class="max-w-sm mt-2">
-            <label for="input-label" class="block text-sm font-medium mb-2">Email</label>
+            <label for="input-label" class="block text-sm font-medium mb-2 text-custom-white">Email</label>
             <input type="text" formControlName="email"
                 class="py-2.5 sm:py-3 px-4 block w-full border border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
                 placeholder="Nhập vào email của bạn">
@@ -29,7 +29,7 @@
             </div>
         </div>
         <div class="max-w-sm mt-2">
-            <label for="input-label" class="block text-sm font-medium mb-2">Mật khẩu</label>
+            <label for="input-label" class="block text-sm font-medium mb-2 text-custom-white">Mật khẩu</label>
             <div class="relative">
                 <input [type]="showPass ? 'text' : 'password'" formControlName="password"
                     class="py-2.5 sm:py-3 px-4 block w-full border border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
@@ -57,7 +57,7 @@
 
         <div class="flex justify-center gap-x-2 my-7">
             <button type="submit" [disabled]="loginForm.invalid"
-                class="bg-goldenfund-black-300 text-goldenfund-yellow-500 hover:bg-goldenfund-silver-100 hover:text-goldenfund-black-300 px-4 py-2 rounded w-full disabled:opacity-50 disabled:pointer-events-none">
+                class="bg-custom-yellow hover:bg-custom-yellow/90 text-[#0C0C0C] shadow-lg shadow-custom-yellow/20 px-4 py-2 rounded w-full disabled:opacity-50 disabled:pointer-events-none">
                 Đăng nhập
             </button>
         </div>
