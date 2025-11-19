@@ -16,7 +16,6 @@ import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 @Component({
   selector: 'app-homepage',
   imports: [
-    HeaderComponent,
     HeroComponent,
     WhyusingComponent,
     BotlistComponent,
@@ -26,7 +25,6 @@ import { DOCUMENT, isPlatformBrowser } from '@angular/common';
     RatingComponent,
     KnownledgeComponent,
     QnaComponent,
-    FooterComponent,
   ],
   templateUrl: './homepage.component.html',
   styleUrl: './homepage.component.css',

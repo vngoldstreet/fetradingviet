@@ -9,13 +9,7 @@ import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-contents',
-  imports: [
-    FooterComponent,
-    HeaderComponent,
-    FormsModule,
-    CommonModule,
-    RouterLink,
-  ],
+  imports: [FormsModule, CommonModule, RouterLink],
   templateUrl: './contents.component.html',
   styleUrl: './contents.component.css',
 })
@@ -34,7 +28,7 @@ export class ContentsComponent {
     const urlEndpoint = `${environment.API_BASE}/${environment.POSTS}?site=tradingviet.com&q=${this.searchText}`;
     this.http.get(urlEndpoint, {}).subscribe({
       next: (response: any) => {
-        console.log(response);
+        // console.log(response);
         this.postLists = response.data.hits;
         this.postTotals = response.data.total;
       },

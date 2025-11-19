@@ -10,7 +10,7 @@ import { FooterComponent } from '../../shared/footer/footer.component';
 
 @Component({
   selector: 'app-post-detail',
-  imports: [CommonModule, RouterLink, HeaderComponent, FooterComponent],
+  imports: [CommonModule, RouterLink],
   templateUrl: './post-detail.component.html',
   styleUrl: './post-detail.component.css',
 })
@@ -65,7 +65,7 @@ export class PostDetailComponent {
             title: `${this.post?.Post?.title}`,
             description: this.post?.Post?.description,
             keywords: `${this.post?.Post?.title}`,
-            url: `https://vangsaigon.vn/${this.post?.Post?.slug}`,
+            url: `https://tradingviet.com/${this.post?.Post?.slug}`,
             image: this.post?.Post?.thumbnail,
             author: this.post?.Author?.display_name,
             facebook: 'https://www.facebook.com/tradingvietdotcom',
@@ -83,7 +83,7 @@ export class PostDetailComponent {
     script.text = JSON.stringify({
       '@context': 'https://schema.org',
       '@type': 'Organization',
-      name: 'Vàng Sài Gòn',
+      name: this.metaTag.title,
       url: this.metaTag.image,
       logo: this.metaTag.image,
       sameAs: [this.metaTag.facebook],
@@ -164,7 +164,6 @@ export class PostDetailComponent {
     const urlEndpoint = `${environment.API_BASE}/${environment.POSTS}?type=content&site=tradingviet.com`;
     this.http.get(urlEndpoint, {}).subscribe({
       next: (response: any) => {
-        console.log(response);
         this.postLists = response.data.hits;
         this.postTotals = response.data.total;
       },

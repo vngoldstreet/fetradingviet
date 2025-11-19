@@ -53,6 +53,10 @@ export class HeaderComponent {
         label: 'Về chúng tôi',
         link: '/ve-chung-toi',
       },
+      {
+        label: 'Liên hệ',
+        link: '/lien-he',
+      },
     ];
     this.cdr.detectChanges();
   }

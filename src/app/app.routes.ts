@@ -6,6 +6,8 @@ import { LoginComponent } from './auth/login/login.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { PostDetailComponent } from './pages/post-detail/post-detail.component';
 import { ContentsComponent } from './pages/contents/contents.component';
+import { AboutUsComponent } from './pages/about-us/about-us.component';
+import { ContactComponent } from './pages/contact/contact.component';
 
 export const routes: Routes = [
   {
@@ -19,6 +21,14 @@ export const routes: Routes = [
   {
     path: 'tin-tuc',
     component: ContentsComponent,
+  },
+  {
+    path: 've-chung-toi',
+    component: AboutUsComponent,
+  },
+  {
+    path: 'lien-he',
+    component: ContactComponent,
   },
   {
     path: '',
